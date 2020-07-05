@@ -1,0 +1,132 @@
+CREATE TABLE npi_summary (
+	npi								INTEGER,
+	nppes_provider_last_org_name	TEXT,
+	nppes_provider_first_name		TEXT,
+	nppes_provider_mi				TEXT,
+	nppes_credentials				TEXT,
+	nppes_provider_gender			TEXT,
+	nppes_entity_code				TEXT,
+	nppes_provider_street1			TEXT,
+	nppes_provider_street2			TEXT,
+	nppes_provider_city				TEXT,
+	nppes_provider_zip5				INTEGER,
+	nppes_provider_zip4				INTEGER,
+	nppes_provider_state			TEXT,
+	nppes_provider_country			TEXT,
+	specialty_description			TEXT,
+	description_flag				TEXT,
+	medicare_prvdr_enroll_status	TEXT,
+	total_claim_count				INTEGER,
+	total_30_day_fill_count			REAL,
+	total_drug_cost					REAL,
+	total_day_supply				INTEGER,
+	bene_count						INTEGER,
+	ge65_suppress_flag				TEXT,
+	total_claim_count_ge65			INTEGER,
+	total_30_day_fill_count_ge65	REAL,
+	total_drug_cost_ge65			REAL,
+	total_day_supply_ge65			INTEGER,
+	bene_count_ge65_suppress_flag	TEXT,
+	bene_count_ge65					INTEGER,
+	brand_suppress_flag				TEXT,
+	brand_claim_count				INTEGER,
+	brand_drug_cost					REAL,
+	generic_suppress_flag			TEXT,
+	generic_claim_count				INTEGER,
+	generic_drug_cost				REAL,
+	other_suppress_flag				TEXT,
+	other_claim_count				INTEGER,
+	other_drug_cost					REAL,
+	mapd_suppress_flag				TEXT,
+	mapd_claim_count				INTEGER,
+	mapd_drug_cost					REAL,
+	pdp_suppress_flag				TEXT,
+	pdp_claim_count					INTEGER,
+	pdp_drug_cost					REAL,
+	lis_suppress_flag				TEXT,
+	lis_claim_count					INTEGER,
+	lis_drug_cost					REAL,
+	nonlis_suppress_flag			TEXT,
+	nonlis_claim_count				INTEGER,
+	nonlis_drug_cost				REAL,
+	opioid_claim_count				INTEGER,
+	opioid_drug_cost				REAL,
+	opioid_day_supply				INTEGER,
+	opioid_bene_count				INTEGER,
+	opioid_prescriber_rate			REAL,
+	la_opioid_claim_count			INTEGER,
+	la_opioid_drug_cost				REAL,
+	la_opioid_day_supply			INTEGER,
+	la_opioid_bene_count			INTEGER,
+	la_opioid_prescriber_rate		REAL,
+	antibiotic_claim_count			INTEGER,
+	antibiotic_drug_cost			REAL,
+	antibiotic_bene_count			INTEGER,
+	antipsych_ge65_suppress_flag	TEXT,
+	antipsych_claim_count_ge65		INTEGER,
+	antipsych_drug_cost_ge65		REAL,
+	antipsych_bene_ge65_suppress_flg TEXT,
+	antipsych_bene_count_ge65		INTEGER,
+	average_age_of_beneficiaries	INTEGER,
+	beneficiary_age_less_65_count	INTEGER,
+	beneficiary_age_65_74_count		INTEGER,
+	beneficiary_age_75_84_count		INTEGER,
+	beneficiary_age_greater_84_count INTEGER,
+	beneficiary_female_count		INTEGER,
+	beneficiary_male_count			INTEGER,
+	beneficiary_race_white_count	INTEGER,
+	beneficiary_race_black_count	INTEGER,
+	beneficiary_race_asian_pi_count	INTEGER,
+	beneficiary_race_hispanic_count	INTEGER,
+	beneficiary_race_nat_ind_count	INTEGER,
+	beneficiary_race_other_count	INTEGER,
+	beneficiary_nondual_count		INTEGER,
+	beneficiary_dual_count			INTEGER,
+	beneficiary_average_risk_score	REAL
+);
+
+CREATE TABLE physician (
+
+	NPI									INTEGER,
+	Last_Name							TEXT,
+	First_Name							TEXT,
+	Gender								TEXT,
+	Credential							TEXT,
+	Medical_school_name					TEXT,
+	Graduation_year						INTEGER,
+	Primary_specialty					TEXT,
+	Secondary_specialty_1				TEXT,
+	Secondary_specialty_2				TEXT,
+	Organization_legal_name				TEXT,
+	Number_of_Group_Practice_members	INTEGER,
+	Line_1_Street_Address				TEXT,
+	Line_2_Street_Address				TEXT,
+	City								TEXT,
+	State								TEXT,
+	Zip_Code							INTEGER
+
+
+);
+
+CREATE TABLE zip_reference (
+    zip                         CHAR    PRIMARY KEY
+                                        UNIQUE,
+    zip_population_2010         INTEGER,
+    zip_land_area_2010          DECIMAL,
+    primary_RUCA_code_2010,
+    zip_population_density_2010 DECIMAL,
+    rural_urban_class           CHAR
+);
+
+CREATE TABLE state_reference (
+    nppes_provider_state VARCHAR PRIMARY KEY
+                                 UNIQUE,
+    state_name           VARCHAR,
+    state_region         VARCHAR
+);
+
+.mode csv
+.import zip_reference.csv zip_reference
+.import state_reference.csv state_reference
+
+
