@@ -26,7 +26,7 @@ Analysis unfolds in these steps:
         - Calculate residuals, feature value contributions for each prediction and append to original dataset
         - Segment data set to high residual outliers, cluster and visualize results
 
-## Data
+### Data
 
 All data comes from the Socrata API which provides provider level data and a host of key variables. Data was stored in a SQLite database, indexed and fragmented to allow for cross joining original dataset, prediction dataset, and analytics dataset - all to provide a data layer for a application to visualize the results of the analysis. 
 
@@ -34,7 +34,7 @@ Preprocessed and clean all 1 miilion plus provider records that allows for predi
 
 Data preprocessing scripts are all available in the `data` directory including accessing the Socrata API, data cleaning and preprocessing. 
 
-## Model Experiments and Analytics
+### Model Experiments and Analytics
 
 Goal of this project was to build a highly skilled model that predicts provider level `Opioid Prescription Rate` and `Opioid Days Supply` using provider meta-data, patient meta-data, and prescription details. A extremely accurate model will allow us to confidently examine the residual outliers - providers with prescription rates above their predicted expected amonuts. With a highly skilled model, we can be sure the residuals are not model based, but influenced by some other factors. 
 
@@ -59,7 +59,7 @@ Outliers were analyzed using various advanced clustering techniques such as DB-S
 
 Shapely analysis helped analyze our model's predictions to provide observation level inference on our outliers. According to this analysis, the number of beneficaries age less than 65 count. Currently in order to qualify for Medicare benefits before 65 the patient must have a disability. 
 
-# Analytics Application
+### Analytics Application
 
 All analysis and model results were packaged into a simple user interface to allow end-users to explore the results. This dashboard (hosted in Tableau) allows users to examine outliers across:
 
@@ -69,7 +69,7 @@ All analysis and model results were packaged into a simple user interface to all
         - How to they compare to other outliers?: clustering analysis
 
 
-## Results
+### Results
 
 The key point of the analysis if to examine the outliers in opioid prescription rate up and above provider expected rate and days supply based on the provider and patient attributes. We believe that these high residual outliers could be an indicator of practices with unhealthy opioid prescription rates. 
 
