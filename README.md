@@ -115,7 +115,11 @@ Order of scripts to reproduce results from our models:
     - .model.opioid_predictions.py          # append to original
     - .model.opioid_days_predictions.py     # append to original
 
-Training and prediction on to the original dataset can take a significant amount of time. Google Collab notebooks are provided as a basis to append predictions quicker (https://colab.research.google.com/notebooks/welcome.ipynb). Both will require mounting of the database to your Google Drive (https://stackoverflow.com/questions/48376580/google-colab-how-to-read-data-from-my-google-drive).  
+Training and prediction on to the original dataset can take a significant amount of time. Google Collab notebooks are provided as a basis to append predictions quicker 
+[colab notebooks](https://colab.research.google.com/notebooks/welcome.ipynb). 
+
+Both will require mounting of the database to your Google Drive 
+[mount colab notebooks](https://stackoverflow.com/questions/48376580/google-colab-how-to-read-data-from-my-google-drive)
 
     - .model.opioid_predictions.ipynb       # append predictions to original dataset
     - .model.opioid_days_model.ipynb        # append predicitons to original dataset
