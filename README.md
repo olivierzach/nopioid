@@ -4,13 +4,13 @@ Course project for Georgia Tech Data Mining & Visual Analytics CSE6242. All data
 
 Presentation deliverables:
 
+[Project Poster](https://github.com/olivierzach/nopioid/blob/master/presentations/team122poster.pdf)
+
+
 [Final Report](https://github.com/olivierzach/nopioid/blob/master/presentations/team122report.pdf)
 
 
 [Progress Report](https://github.com/olivierzach/nopioid/blob/master/presentations/team122progress.pdf)
-
-
-[Project Poster](https://github.com/olivierzach/nopioid/blob/master/presentations/team122poster.pdf)
 
 
 [Project Proposal](https://github.com/olivierzach/nopioid/blob/master/presentations/dva_%20project%20proposal.pdf)
