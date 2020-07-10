@@ -25,6 +25,9 @@ df = pd.read_sql_query(
     conn
 )
 
+# tuck in npi to expose for joining later
+df = df.set_index('npi')
+
 # columns that we cannot use for modeling
 drop_cols = [
     'nppes_provider_last_org_name',
@@ -64,11 +67,10 @@ features = list(pd.read_pickle('opioid_features.sav'))
 
 # drop target from prediction set
 df.drop(
-    ['npi', 'opioid_prescriber_rate'],
+    'opioid_prescriber_rate',
     axis=1,
     inplace=True
 )
-
 
 # subset to only the needed features
 df = df[features]
@@ -97,12 +99,70 @@ df = df.merge(
     suffixes=('', '_shp')
 )
 
-# TODO: visualize shap values here
+# expose npi for joining
+df = df.reset_index()
+
+# read in original for joining
+df_original = pd.read_sql_query(
+    "SELECT * FROM npi_summary",
+    conn
+)
+
+# combine predictions with original
+df_combined = df_original.merge(
+    df,
+    how='inner',
+    on='npi'
+)
+
+# calculate residuals
+df_combined['diff'] = df_combined['opioid_prescriber_rate'] - df_combined['gbm_predict']
+df_combined['abs_diff'] = abs(df_combined['diff'])
+
+# subset to only large residuals
+df_outliers = df_combined[df_combined['abs_diff'] >= 10]
+
+
+
+# visualize shapely values
+shap_analysis = df.filter(regex='shp')
+
+shap_mean = shap_analysis.mean().reset_index()
+shap_mean.columns = ['variable', 'contribution']
+shap_mean['abs_contribution'] = abs(shap_mean['contribution'])
+shap_mean = shap_mean.sort_values('contribution', ascending=False)
+shap_mean = shap_mean[shap_mean.abs_contribution > .005]
+
+plt.rcParams['figure.figsize'] = (10, 10)
+ax = sns.barplot(
+    'contribution',
+    'variable',
+    data=shap_mean[shap_mean.contribution != 0]
+)
+ax.set_yticklabels(ax.get_yticklabels(), fontsize=11)
+ax.set_title('Average Shapely Contribution by Feature: Opioid Model')
+plt.show()
 
 # write final results back into sqlite database
 if conn is not None:
     df.to_sql(
-        'npi_summary_predictions',
+        'npi_predictions',
+        conn,
+        if_exists='replace'
+    )
+
+# write final results back into sqlite database
+if conn is not None:
+    df_combined.to_sql(
+        'npi_summary_with_predictions',
+        conn,
+        if_exists='replace'
+    )
+
+# write final results back into sqlite database
+if conn is not None:
+    df_outliers.to_sql(
+        'npi_outliers_only',
         conn,
         if_exists='replace'
     )
