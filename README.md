@@ -75,7 +75,7 @@ The key point of the analysis if to examine the outliers in opioid prescription 
 
 **In analyzing outliers there were multiple providers that had recently been either convicted of prescription malpractice or in the progress of an investigation. This does not mean that all outliers are in question - but this analysis and application could be a useful tool in curbing the opioid epidemic.** 
 
-[Opioid Malpractice Case - Las Vegas Provider identified by Model as Extreme Over-Prescriber](https://lasvegassun.com/news/2012/may/18/doctor-involved-medical-malpractice-kickbacks-prob/#:~:text=Las%20Vegas%20neurosurgeon%20Dr.,state%20Board%20of%20Medical%20Examiners.)
+[Opioid Malpractice Case Indentified by Nopioid Model](https://lasvegassun.com/news/2012/may/18/doctor-involved-medical-malpractice-kickbacks-prob/#:~:text=Las%20Vegas%20neurosurgeon%20Dr.,state%20Board%20of%20Medical%20Examiners.)
 
 
 ### Prerequisites
