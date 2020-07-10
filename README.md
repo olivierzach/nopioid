@@ -80,7 +80,7 @@ The key point of the analysis if to examine the outliers in opioid prescription 
 
 ### Prerequisites
 
-All engineering, analytics, and modeling are performed in Python 3. Main database used to store and index data is SQLite (https://www.sqlite.org/index.html). Python package requirements are listed below. Accessing the CMS API requires you to generate your own key and token (https://dev.socrata.com/) to stream in the `2017 Provider Summary Data File`. Final project dashboard is available through Tableau Server. You can download Tableau locally and visualize some proof of concept templates here (https://www.tableau.com/products/desktop).
+All engineering, analytics, and modeling are performed in Python 3. Main database used to store and index data is [SQLite](https://www.sqlite.org/index.html). Python package requirements are listed below. Accessing the [CMS API](https://dev.socrata.com/) requires you to generate your own key and token to stream in the `2017 Provider Summary Data File`. Final project dashboard is available through Tableau Server. You can download Tableau locally and visualize some proof of concept templates [here](https://www.tableau.com/products/desktop).
 
 ```
 pandas
@@ -114,10 +114,10 @@ Order of scripts to reproduce results from our models:
     - .data.sqlite_script.txt               # format data into types and index
     - .model.opioid_model.py                # train rate model
     - .model.opioid_days_model.py           # train days model
-    - .model.opioid_predictions.py          # append to original
-    - .model.opioid_days_predictions.py     # append to original
+    - .model.opioid_predictions.py          # append predictions to original
+    - .model.opioid_days_predictions.py     # append predictions to original
 
-Training and prediction on to the original dataset can take a significant amount of time. Google Collab notebooks are provided as a basis to append predictions quicker 
+Training and prediction on to the original dataset can take a significant amount of time. Google Collab notebooks are provided as a basis to append predictions quicker:  
 [colab notebooks](https://colab.research.google.com/notebooks/welcome.ipynb). 
 
 Both will require mounting of the database to your Google Drive 
@@ -132,7 +132,7 @@ To reproduce the clustering results on the outliers:
 
 Result is now a final dataset used to upload to Tableau and visualize output. Final project output lives in a Tableau dashboard hosted on Tableu server. 
 
-Official insights dashboard: https://tabsoft.co/2XLd3ZH (may be deprecated, please see presentations for details)
+Official insights dashboard: [Nopioid](https://tabsoft.co/2XLd3ZH) (may be deprecated, please see presentations for details)
 
 The insights dashboard contains the following analytics:
 
