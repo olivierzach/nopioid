@@ -30,7 +30,7 @@ Analysis unfolds in these steps:
 
 All data comes from the Socrata API which provides provider level data and a host of key variables. Data was stored in a SQLite database, indexed and fragmented to allow for cross joining original dataset, prediction dataset, and analytics dataset - all to provide a data layer for a application to visualize the results of the analysis. 
 
-Preprocessed and clean all 1 miilion plus provider records that allows for predictive modeling and analytics. Feature engineering was completed to handle variables with 50+ levels using `vtreat` style methods. Other preprocessing such as one hot encoding, variance filters and other recursive feature engineering were used to develop the final training and analysis training set. These methods reduced the feature-space from 500+ possible variables to a rich information set of around 50 features. 
+Preprocessed and clean all 1.1 million plus provider records that allows for predictive modeling and analytics. Feature engineering was completed to handle variables with 50+ levels using `vtreat` style methods. Other preprocessing such as one hot encoding, variance filters and other recursive feature engineering were used to develop the final training and analysis training set. These methods reduced the feature-space from 500+ possible variables to a rich information set of around 50 features. 
 
 Data preprocessing scripts are all available in the `data` directory including accessing the Socrata API, data cleaning and preprocessing. 
 
