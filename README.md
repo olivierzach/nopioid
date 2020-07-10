@@ -41,7 +41,7 @@ Goal of this project was to build a highly skilled model that predicts provider 
 Final models for both targets performed extremely well:
 
 `Opioid Prescription Rate Model`: Mean Absolute Error: 1.5% on average
-`Opioid Days Supply Model`: 200 Days off on average
+`Opioid Days Supply Model`: Mean Absolute Error: 29% on average
 
 Techniques applied, see `model` directory for details:
 
